@@ -1,0 +1,11 @@
+{
+  "item.paomo.stick": "stick",
+  "item.paomo.stick.tip": "Okay,you successfully wasted a wooden stick",
+  "item.paomo.air": "air",
+  "item.paomo.air.tip": "Not really, is someone really messing with this?",
+  "block.paomo.stick_block": "stick_block",
+  "item.paomo.null.tip": "Press Ctrl to view more",
+  "block.paomo.null.tip": "Press Ctrl to view more",
+  "command.paomo.gm.tip":"Your game mode has been switched to ",
+  "command.paomo.gmerrorer.tip": "Invalid command syntax"
+}

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "paomo",
+  "cookingtime": 114,
+  "experience": 1.0,
+  "group": "paomo",
+  "ingredient": {
+    "item": "paomo:stick"
+  },
+  "result": "paomo:air"
+}

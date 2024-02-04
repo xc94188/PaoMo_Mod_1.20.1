@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "   ",
+    "   ",
+    "#  "
+  ],
+  "result": {
+    "count": 1,
+    "item": "paomo:stick"
+  },
+  "show_notification": true
+}
