@@ -115,35 +115,35 @@ public class ModCommands {
     }
 
 
-        private static void registerVCommand(CommandDispatcher<ServerCommandSource> dispatcher) {
-            dispatcher.register(CommandManager.literal("v")
-                    .requires(source -> source.hasPermissionLevel(4))  // 确保只有 OP 可以执行这个命令
-                    .executes(context -> {
-                        ServerPlayerEntity player = context.getSource().getPlayer();
-                        if (player != null) {
-                            UUID playerUUID = player.getUuid();
-                            if (vanishedPlayers.contains(playerUUID)) {
-                                // 如果玩家已经是隐身的，那么他们将变为可见
-                                vanishedPlayers.remove(playerUUID);
-                                player.setInvisible(false);
-                                player.noClip = false;  // 取消无碰撞状态
-                                Text message = Text.literal(player.getEntityName() + " joined the game").setStyle(Style.EMPTY.withColor(Formatting.YELLOW));
-                                context.getSource().getServer().getPlayerManager().getPlayerList().forEach(p -> p.sendMessage(message));
-                                context.getSource().getServer().getPlayerManager().sendToAll(new PlayerListS2CPacket(PlayerListS2CPacket.Action.UPDATE_GAME_MODE, player));  // 在玩家列表中显示玩家
-                            } else {
-                                // 如果玩家不是隐身的，那么他们将变为隐身
-                                vanishedPlayers.add(playerUUID);
-                                player.setInvisible(true);
-                                player.noClip = true;  // 设置无碰撞状态
-                                Text message = Text.literal(player.getEntityName() + " left the game").setStyle(Style.EMPTY.withColor(Formatting.YELLOW));
-                                context.getSource().getServer().getPlayerManager().getPlayerList().forEach(p -> p.sendMessage(message));
-                                context.getSource().getServer().getPlayerManager().sendToAll(new PlayerListS2CPacket(PlayerListS2CPacket.Action.UPDATE_GAME_MODE, player));  // 在玩家列表中隐藏玩家
-                            }
+    private static void registerVCommand(CommandDispatcher<ServerCommandSource> dispatcher) {
+        dispatcher.register(CommandManager.literal("v")
+                .requires(source -> source.hasPermissionLevel(4))  // 确保只有 OP 可以执行这个命令
+                .executes(context -> {
+                    ServerPlayerEntity player = context.getSource().getPlayer();
+                    if (player != null) {
+                        UUID playerUUID = player.getUuid();
+                        if (vanishedPlayers.contains(playerUUID)) {
+                            // 如果玩家已经是隐身的，那么他们将变为可见
+                            vanishedPlayers.remove(playerUUID);
+                            player.setInvisible(false);
+                            player.noClip = false;  // 取消无碰撞状态
+                            Text message = Text.literal(player.getEntityName() + " joined the game").setStyle(Style.EMPTY.withColor(Formatting.YELLOW));
+                            context.getSource().getServer().getPlayerManager().getPlayerList().forEach(p -> p.sendMessage(message));
+                            context.getSource().getServer().getPlayerManager().sendToAll(new PlayerListS2CPacket(PlayerListS2CPacket.Action.UPDATE_GAME_MODE, player));  // 在玩家列表中显示玩家
+                        } else {
+                            // 如果玩家不是隐身的，那么他们将变为隐身
+                            vanishedPlayers.add(playerUUID);
+                            player.setInvisible(true);
+                            player.noClip = true;  // 设置无碰撞状态
+                            Text message = Text.literal(player.getEntityName() + " left the game").setStyle(Style.EMPTY.withColor(Formatting.YELLOW));
+                            context.getSource().getServer().getPlayerManager().getPlayerList().forEach(p -> p.sendMessage(message));
+                            context.getSource().getServer().getPlayerManager().sendToAll(new PlayerListS2CPacket(PlayerListS2CPacket.Action.UPDATE_GAME_MODE, player));  // 在玩家列表中隐藏玩家
                         }
-                        return 1;
-                    })
-            );
-        }
+                    }
+                    return 1;
+                })
+        );
+    }
 }
 
 

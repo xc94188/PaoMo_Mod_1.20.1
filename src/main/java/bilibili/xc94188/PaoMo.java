@@ -1,6 +1,9 @@
 package bilibili.xc94188;
 
-import bilibili.xc94188.registry.*;
+import bilibili.xc94188.registry.ModBlocks;
+import bilibili.xc94188.registry.ModCommands;
+import bilibili.xc94188.registry.ModItemGroup;
+import bilibili.xc94188.registry.ModItems;
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
