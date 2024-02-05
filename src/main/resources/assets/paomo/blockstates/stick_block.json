@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": {"model": "paomo:block/stick_block"}
+    "": {
+      "model": "paomo:block/stick_block"
+    }
   }
 }

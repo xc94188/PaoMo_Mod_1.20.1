@@ -1,40 +1,40 @@
 {
-	"schemaVersion": 1,
-	"id": "paomo",
-	"version": "${version}",
-	"name": "PaoMo",
-	"description": "114514",
-	"authors": [
-		"xc94188!"
-	],
-	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
-	},
-	"license": "CC0-1.0",
-	"icon": "assets/paomo/icon.png",
-	"environment": "*",
-	"entrypoints": {
-		"main": [
-			"bilibili.xc94188.PaoMo"
-		],
-		"client": [
-			"bilibili.xc94188.PaoMoModClient"
-		],
-		"fabric-datagen": [
-			"bilibili.xc94188.PaoMoDataGenerator"
-		]
-	},
-	"mixins": [
-		"paomo.mixins.json"
-	],
-	"depends": {
-		"fabricloader": ">=0.14.21",
-		"minecraft": "~1.20.1",
-		"java": ">=17",
-		"fabric-api": "*"
-	},
-	"suggests": {
-		"another-mod": "*"
-	}
+  "schemaVersion": 1,
+  "id": "paomo",
+  "version": "${version}",
+  "name": "PaoMo",
+  "description": "114514",
+  "authors": [
+    "xc94188!"
+  ],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "sources": "https://github.com/FabricMC/fabric-example-mod"
+  },
+  "license": "CC0-1.0",
+  "icon": "assets/paomo/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "bilibili.xc94188.PaoMo"
+    ],
+    "client": [
+      "bilibili.xc94188.PaoMoModClient"
+    ],
+    "fabric-datagen": [
+      "bilibili.xc94188.PaoMoDataGenerator"
+    ]
+  },
+  "mixins": [
+    "paomo.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.21",
+    "minecraft": "~1.20.1",
+    "java": ">=17",
+    "fabric-api": "*"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
 }

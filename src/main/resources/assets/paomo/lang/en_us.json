@@ -6,6 +6,7 @@
   "block.paomo.stick_block": "stick_block",
   "item.paomo.null.tip": "Press Ctrl to view more",
   "block.paomo.null.tip": "Press Ctrl to view more",
-  "command.paomo.gm.tip":"Your game mode has been switched to ",
+  "command.paomo.gm.tip": "Your game mode has been switched to ",
+  "item.paomo.you_were_deceived": "You were deceived",
   "command.paomo.gmerrorer.tip": "Invalid command syntax"
 }

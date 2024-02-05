@@ -16,6 +16,7 @@ public class ModItemGroup {
                     .icon(() -> new ItemStack(ModItems.STICK)).entries((displayContext, entries) -> {
                         entries.add(ModItems.STICK);
                         entries.add(ModItems.AIR);
+                        entries.add(ModItems.YOU_WERE_DECEIVED);
                         entries.add(ModBlocks.STICK_BLOCK);
                     }).build());
 
