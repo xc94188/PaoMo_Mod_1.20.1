@@ -23,7 +23,7 @@ import static net.minecraft.server.command.CommandManager.argument;
 import static net.minecraft.server.command.CommandManager.literal;
 
 public class ModCommands {
-    private static final Set<UUID> vanishedPlayers = new HashSet<>();
+    public static final Set<UUID> vanishedPlayers = new HashSet<>();
 
     public static void registerCommands() {
         CommandRegistrationCallback.EVENT.register((dispatcher, dedicated, isReload) -> {
@@ -36,43 +36,34 @@ public class ModCommands {
     }
 
     private static void registerGmCommand(CommandDispatcher<ServerCommandSource> dispatcher) {
-        LiteralArgumentBuilder<ServerCommandSource> command = literal("gm")
-                .requires(source -> source.hasPermissionLevel(4))  // 只有权限等级为4的玩家（即op）才能执行此命令
-                .then(argument("mode", StringArgumentType.string())
-                        .suggests((context, builder) -> CommandSource.suggestMatching(new String[]{
-                                "0", "1", "2", "3", "s", "c", "a", "sp"
-                        }, builder))
-                        .executes(context -> {
-                            String mode = StringArgumentType.getString(context, "mode");
-                            ServerPlayerEntity player = context.getSource().getPlayer();
-                            if (!mode.equals("0") && !mode.equals("1") && !mode.equals("2") && !mode.equals("3") &&
-                                    !mode.equals("s") && !mode.equals("c") && !mode.equals("a") && !mode.equals("sp")) {
-                                if (player != null) {
-                                    player.sendMessage(Text.translatable("command.paomo.gmerrorer.tip").formatted(Formatting.RED), false);
-                                }
-                            } else {
-                                changeGameMode(player, mode);
-                            }
-                            return 1;
-                        })
-                        .then(argument("target", EntityArgumentType.players())
-                                .executes(context -> {
-                                    String mode = StringArgumentType.getString(context, "mode");
-                                    ServerPlayerEntity player = context.getSource().getPlayer();
-                                    Collection<ServerPlayerEntity> targetPlayers = EntityArgumentType.getPlayers(context, "target");
-                                    if (!mode.equals("0") && !mode.equals("1") && !mode.equals("2") && !mode.equals("3") &&
-                                            !mode.equals("s") && !mode.equals("c") && !mode.equals("a") && !mode.equals("sp")) {
-                                        if (player != null) {
-                                            player.sendMessage(Text.translatable("command.paomo.gmerrorer.tip").formatted(Formatting.RED), false);
-                                        }
-                                    } else {
-                                        for (ServerPlayerEntity targetPlayer : targetPlayers) {
-                                            changeGameMode(targetPlayer, mode);
-                                        }
-                                    }
+        LiteralArgumentBuilder<ServerCommandSource> command = literal("gm").requires(source -> source.hasPermissionLevel(4))  // 只有权限等级为4的玩家（即op）才能执行此命令
+                .then(argument("mode", StringArgumentType.string()).suggests((context, builder) -> CommandSource.suggestMatching(new String[]{"0", "1", "2", "3", "s", "c", "a", "sp"}, builder)).executes(context -> {
+                    String mode = StringArgumentType.getString(context, "mode");
+                    ServerPlayerEntity player = context.getSource().getPlayer();
+                    if (!mode.equals("0") && !mode.equals("1") && !mode.equals("2") && !mode.equals("3") && !mode.equals("s") && !mode.equals("c") && !mode.equals("a") && !mode.equals("sp")) {
+                        if (player != null) {
+                            player.sendMessage(Text.translatable("command.paomo.gmerrorer.tip").formatted(Formatting.RED), false);
+                        }
+                    } else {
+                        changeGameMode(player, mode);
+                    }
+                    return 1;
+                }).then(argument("target", EntityArgumentType.players()).executes(context -> {
+                    String mode = StringArgumentType.getString(context, "mode");
+                    ServerPlayerEntity player = context.getSource().getPlayer();
+                    Collection<ServerPlayerEntity> targetPlayers = EntityArgumentType.getPlayers(context, "target");
+                    if (!mode.equals("0") && !mode.equals("1") && !mode.equals("2") && !mode.equals("3") && !mode.equals("s") && !mode.equals("c") && !mode.equals("a") && !mode.equals("sp")) {
+                        if (player != null) {
+                            player.sendMessage(Text.translatable("command.paomo.gmerrorer.tip").formatted(Formatting.RED), false);
+                        }
+                    } else {
+                        for (ServerPlayerEntity targetPlayer : targetPlayers) {
+                            changeGameMode(targetPlayer, mode);
+                        }
+                    }
 
-                                    return 1;
-                                })));
+                    return 1;
+                })));
         dispatcher.register(command);
     }
 
@@ -93,31 +84,26 @@ public class ModCommands {
     }
 
     private static void registerSudoCommand(CommandDispatcher<ServerCommandSource> dispatcher) {
-        dispatcher.register(CommandManager.literal("sudo")
-                .requires(source -> source.hasPermissionLevel(4))  // 只有权限等级为4的玩家（即op）才能执行此命令
-                .then(CommandManager.argument("target", EntityArgumentType.player())
-                        .then(CommandManager.argument("command", StringArgumentType.greedyString())
-                                .executes(context -> {
-                                    ServerPlayerEntity player = EntityArgumentType.getPlayer(context, "target");
-                                    String command = StringArgumentType.getString(context, "command");
-                                    if (command.startsWith("c:")) {
-                                        // 如果命令以 "c:" 开头，那么将 "c:" 之后的所有字符作为参数执行 "/say" 命令
-                                        String sayMessage = command.substring(2);
-                                        String sayCommand = "execute as " + player.getName().getString() + " run say " + sayMessage;
-                                        ParseResults<ServerCommandSource> parse = dispatcher.parse(sayCommand, Objects.requireNonNull(player.getServer()).getCommandSource());
-                                        return dispatcher.execute(parse);
-                                    } else {
-                                        // 否则，像之前一样执行命令
-                                        ParseResults<ServerCommandSource> parse = dispatcher.parse(command, player.getCommandSource());
-                                        return dispatcher.execute(parse);
-                                    }
-                                }))));
+        dispatcher.register(CommandManager.literal("sudo").requires(source -> source.hasPermissionLevel(4))  // 只有权限等级为4的玩家（即op）才能执行此命令
+                .then(CommandManager.argument("target", EntityArgumentType.player()).then(CommandManager.argument("command", StringArgumentType.greedyString()).executes(context -> {
+                    ServerPlayerEntity player = EntityArgumentType.getPlayer(context, "target");
+                    String command = StringArgumentType.getString(context, "command");
+                    if (command.startsWith("c:")) {
+                        // 如果命令以 "c:" 开头，那么将 "c:" 之后的所有字符作为参数执行 "say" 命令
+                        String sayMessage = command.substring(2);
+                        String sayCommand = "execute as " + player.getName().getString() + " run say " + sayMessage;
+                        ParseResults<ServerCommandSource> parse = dispatcher.parse(sayCommand, Objects.requireNonNull(player.getServer()).getCommandSource());
+                        return dispatcher.execute(parse);
+                    } else {
+                        // 否则，像之前一样执行命令
+                        ParseResults<ServerCommandSource> parse = dispatcher.parse(command, player.getCommandSource());
+                        return dispatcher.execute(parse);
+                    }
+                }))));
     }
 
-
-    private static void registerVCommand(CommandDispatcher<ServerCommandSource> dispatcher) {
-        dispatcher.register(CommandManager.literal("v")
-                .requires(source -> source.hasPermissionLevel(4))  // 确保只有 OP 可以执行这个命令
+    public static void registerVCommand(CommandDispatcher<ServerCommandSource> dispatcher) {
+        dispatcher.register(CommandManager.literal("v").requires(source -> source.hasPermissionLevel(4))  // 确保只有 OP 可以执行这个命令
                 .executes(context -> {
                     ServerPlayerEntity player = context.getSource().getPlayer();
                     if (player != null) {
@@ -141,8 +127,7 @@ public class ModCommands {
                         }
                     }
                     return 1;
-                })
-        );
+                }));
     }
 }
 
