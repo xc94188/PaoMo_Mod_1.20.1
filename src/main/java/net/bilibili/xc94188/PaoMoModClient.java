@@ -1,4 +1,4 @@
-package bilibili.xc94188;
+package net.bilibili.xc94188;
 
 import net.fabricmc.api.ClientModInitializer;
 

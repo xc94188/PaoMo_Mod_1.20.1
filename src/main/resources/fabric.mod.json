@@ -16,13 +16,13 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "bilibili.xc94188.PaoMo"
+      "net.bilibili.xc94188.PaoMo"
     ],
     "client": [
-      "bilibili.xc94188.PaoMoModClient"
+      "net.bilibili.xc94188.PaoMoModClient"
     ],
     "fabric-datagen": [
-      "bilibili.xc94188.PaoMoDataGenerator"
+      "net.bilibili.xc94188.PaoMoDataGenerator"
     ]
   },
   "mixins": [

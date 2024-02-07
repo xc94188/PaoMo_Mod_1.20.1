@@ -1,4 +1,4 @@
-package bilibili.xc94188;
+package net.bilibili.xc94188;
 
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;

@@ -1,6 +1,8 @@
-package bilibili.xc94188.registry;
+package net.bilibili.xc94188.registry.items;
 
-import bilibili.xc94188.PaoMo;
+import net.bilibili.xc94188.PaoMo;
+import net.bilibili.xc94188.registry.Foods.ModFoods;
+import net.bilibili.xc94188.registry.Tips.ModItemTipsNoCtrl;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;

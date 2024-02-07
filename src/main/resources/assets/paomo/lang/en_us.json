@@ -7,6 +7,7 @@
   "item.paomo.null.tip": "Press Ctrl to view more",
   "block.paomo.null.tip": "Press Ctrl to view more",
   "command.paomo.gm.tip": "Your game mode has been switched to ",
+  "enchantment.paomo.bad_luck_of_sea": "bad_luck_of_sea",
   "item.paomo.you_were_deceived": "You were deceived",
   "command.paomo.gmerrorer.tip": "Invalid command syntax"
 }

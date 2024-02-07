@@ -1,6 +1,6 @@
-package bilibili.xc94188.registry;
+package net.bilibili.xc94188.registry.Commands;
 
-import bilibili.xc94188.PaoMo;
+import net.bilibili.xc94188.PaoMo;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.ParseResults;
 import com.mojang.brigadier.arguments.StringArgumentType;

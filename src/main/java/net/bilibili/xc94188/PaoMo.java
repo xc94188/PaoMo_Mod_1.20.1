@@ -1,9 +1,10 @@
-package bilibili.xc94188;
+package net.bilibili.xc94188;
 
-import bilibili.xc94188.registry.ModBlocks;
-import bilibili.xc94188.registry.ModCommands;
-import bilibili.xc94188.registry.ModItemGroup;
-import bilibili.xc94188.registry.ModItems;
+import net.bilibili.xc94188.registry.Commands.ModCommands;
+import net.bilibili.xc94188.registry.enchantments.ModEnchantments;
+import net.bilibili.xc94188.registry.blocks.ModBlocks;
+import net.bilibili.xc94188.registry.items.ModItemGroup;
+import net.bilibili.xc94188.registry.items.ModItems;
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,6 +26,7 @@ public class PaoMo implements ModInitializer {
         ModItems.registerModItems();
         ModBlocks.registerModBlocks();
         ModCommands.registerCommands();
+        ModEnchantments.registerModEnchantments();
         ModItemGroup.registerModItemGroup();
     }
 }

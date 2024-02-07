@@ -1,6 +1,7 @@
-package bilibili.xc94188.registry;
+package net.bilibili.xc94188.registry.items;
 
-import bilibili.xc94188.PaoMo;
+import net.bilibili.xc94188.PaoMo;
+import net.bilibili.xc94188.registry.blocks.ModBlocks;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
