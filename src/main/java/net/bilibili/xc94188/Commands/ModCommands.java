@@ -1,4 +1,4 @@
-package net.bilibili.xc94188.registry.Commands;
+package net.bilibili.xc94188.Commands;
 
 import net.bilibili.xc94188.PaoMo;
 import com.mojang.brigadier.CommandDispatcher;

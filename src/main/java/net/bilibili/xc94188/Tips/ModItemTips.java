@@ -1,4 +1,4 @@
-package net.bilibili.xc94188.registry.Tips;
+package net.bilibili.xc94188.Tips;
 
 
 import net.minecraft.client.gui.screen.Screen;

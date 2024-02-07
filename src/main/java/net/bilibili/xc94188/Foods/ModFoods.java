@@ -1,4 +1,4 @@
-package net.bilibili.xc94188.registry.Foods;
+package net.bilibili.xc94188.Foods;
 
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;

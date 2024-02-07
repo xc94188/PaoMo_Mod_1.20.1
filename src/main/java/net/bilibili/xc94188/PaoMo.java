@@ -1,10 +1,10 @@
 package net.bilibili.xc94188;
 
-import net.bilibili.xc94188.registry.Commands.ModCommands;
-import net.bilibili.xc94188.registry.enchantments.ModEnchantments;
-import net.bilibili.xc94188.registry.blocks.ModBlocks;
-import net.bilibili.xc94188.registry.items.ModItemGroup;
-import net.bilibili.xc94188.registry.items.ModItems;
+import net.bilibili.xc94188.Commands.ModCommands;
+import net.bilibili.xc94188.enchantments.ModEnchantments;
+import net.bilibili.xc94188.blocks.ModBlocks;
+import net.bilibili.xc94188.items.ModItemGroup;
+import net.bilibili.xc94188.items.ModItems;
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
