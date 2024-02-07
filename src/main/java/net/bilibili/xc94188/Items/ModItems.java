@@ -1,4 +1,4 @@
-package net.bilibili.xc94188.items;
+package net.bilibili.xc94188.Items;
 
 import net.bilibili.xc94188.PaoMo;
 import net.bilibili.xc94188.Foods.ModFoods;
@@ -14,6 +14,7 @@ public class ModItems {
     public static final Item STICK = registerItem("stick", new ModItemTipsNoCtrl("stick", new FabricItemSettings()));
     public static final Item AIR = registerItem("air", new ModItemTipsNoCtrl("air", new FabricItemSettings()));
 
+    public static final Item ZHUGE = registerItem("zhuge",new ZhuGeItem(new FabricItemSettings().maxCount(1).maxDamage(465)));
     public static final Item YOU_WERE_DECEIVED = registerItem("you_were_deceived",
             new Item(new FabricItemSettings().rarity(Rarity.RARE)
                     .food(ModFoods.YOU_WERE_DECEIVED)));

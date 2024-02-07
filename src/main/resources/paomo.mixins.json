@@ -3,9 +3,9 @@
   "package": "net.bilibili.xc94188.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "ExampleMixin",
+    "ArmorEnchantmentMixin",
     "BadOfSeaMixin",
-    "ArmorEnchantmentMixin"
+    "ExampleMixin"
   ],
   "injectors": {
     "defaultRequire": 1

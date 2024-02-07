@@ -1,8 +1,10 @@
-package net.bilibili.xc94188.items;
+package net.bilibili.xc94188.Items;
 
+import net.bilibili.xc94188.Enchantments.ModEnchantments;
 import net.bilibili.xc94188.PaoMo;
 import net.bilibili.xc94188.blocks.ModBlocks;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
@@ -19,6 +21,7 @@ public class ModItemGroup {
                         entries.add(ModItems.AIR);
                         entries.add(ModItems.YOU_WERE_DECEIVED);
                         entries.add(ModBlocks.STICK_BLOCK);
+                        entries.add(ModItems.ZHUGE);
                     }).build());
 
     public static void registerModItemGroup() {
